@@ -1,0 +1,44 @@
+:root {
+  --bg-color: #ede7dc;
+  --red-color: #793535;
+  --gold-color: #c5a46a;
+  --text-color: #2b2523;
+
+  --font-display: var(--font-electro);
+  --font-label: var(--font-hina);
+  --font-body: var(--font-epilogue);
+}
+
+body {
+  position: relative;
+  background-color: var(--bg-color);
+
+  // Washi paper grain
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    mix-blend-mode: multiply;
+  }
+
+  // Halftone dot grid
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background-image: radial-gradient(
+      circle,
+      rgba(43, 37, 35, 0.18) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+    opacity: 0.5;
+  }
+}

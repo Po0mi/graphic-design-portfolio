@@ -1,0 +1,186 @@
+.goals {
+  width: 100%;
+  background-color: var(--bg-color);
+
+  // ── Header ────────────────────────────────────────────────
+  .goals-header {
+    padding: 8rem 4rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .goals-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 0.95;
+  }
+
+  // ── Stack ─────────────────────────────────────────────────
+  .goals-stack {
+    position: relative;
+  }
+
+  .goal-slot {
+    height: 100vh;
+  }
+
+  .goal-card {
+    position: sticky;
+    top: calc(80px + calc(var(--index) * 10px));
+    z-index: calc(var(--index) + 1);
+
+    width: 100%;
+    background-color: var(--bg);
+    overflow: hidden;
+    box-shadow: 0 -4px 32px rgba(43, 37, 35, 0.1);
+  }
+
+  // ── Card inner layout ─────────────────────────────────────
+  .goal-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 4rem;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+    min-height: 280px;
+  }
+
+  .goal-card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .goal-card-top {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .goal-period-jp {
+    font-family: var(--font-label);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    // invert on dark backgrounds
+    .goal-card:not([style*="--bg-color"]) & {
+      color: rgba(237, 231, 220, 0.7);
+    }
+  }
+
+  .goal-period {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.45;
+  }
+
+  .goal-title {
+    font-family: var(--font-label);
+    font-size: clamp(2rem, 4.5vw, 5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin: 0;
+    line-height: 0.95;
+  }
+
+  .goal-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .goal-tag {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    padding: 0.2rem 0.55rem;
+    opacity: 0.45;
+  }
+
+  .goal-card-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .goal-desc {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    line-height: 1.8;
+    margin: 0;
+    opacity: 0.65;
+    max-width: 52ch;
+  }
+
+  // ── Watermark number ──────────────────────────────────────
+  .goal-watermark {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 18vw, 18rem);
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.06;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.04em;
+  }
+
+  // ── Color variants ────────────────────────────────────────
+  // Cards on dark bg get light text
+  .goal-card[style*="--red-color"],
+  .goal-card[style*="--text-color"] {
+    color: var(--bg-color);
+
+    .goal-period-jp,
+    .goal-title,
+    .goal-desc,
+    .goal-period,
+    .goal-tag,
+    .goal-watermark {
+      color: var(--bg-color);
+    }
+  }
+
+  .goal-card[style*="--gold-color"] {
+    color: var(--text-color);
+  }
+
+  // ── Mobile ────────────────────────────────────────────────
+  @media (max-width: 768px) {
+    .goals-header {
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    .goal-card-inner {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 1.5rem;
+      gap: 1.5rem;
+      min-height: unset;
+    }
+
+    .goal-watermark {
+      font-size: 30vw;
+      opacity: 0.04;
+      bottom: 0;
+      top: auto;
+      transform: none;
+    }
+  }
+}

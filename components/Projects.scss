@@ -1,0 +1,151 @@
+.projects {
+  width: 100%;
+  height: 130svh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--bg-color);
+  touch-action: pan-y;
+
+  .gallery-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .gallery {
+    width: 140vmax;
+    height: 140vmax;
+    position: absolute;
+    will-change: transform;
+  }
+
+  .jp-text {
+    position: absolute;
+    font-family: var(--font-label);
+    font-size: clamp(1rem, 3vmax, 2.5rem);
+    font-weight: 700;
+    color: var(--text-color);
+    opacity: 0.3;
+    pointer-events: none;
+    user-select: none;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  .tile {
+    position: absolute;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      opacity: 0.88;
+      transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    }
+
+    &:hover img {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+  }
+
+  .tile-1 {
+    background-color: var(--gold-color);
+    height: 14%;
+    width: 20%;
+    left: 5%;
+    top: 5%;
+  }
+
+  .tile-2 {
+    background-color: #8b7355;
+    height: 24%;
+    width: 14%;
+    left: 42%;
+    top: 12%;
+  }
+
+  .tile-3 {
+    background-color: var(--red-color);
+    height: 18%;
+    width: 16%;
+    left: 12%;
+    top: 34%;
+  }
+
+  .tile-4 {
+    background-color: #a08262;
+    height: 14%;
+    width: 12%;
+    left: 45%;
+    top: 48%;
+  }
+
+  .tile-5 {
+    background-color: var(--text-color);
+    height: 16%;
+    width: 32%;
+    left: 8%;
+    top: 70%;
+  }
+
+  .tile-6 {
+    background-color: #c8944a;
+    height: 24%;
+    width: 24%;
+    left: 68%;
+    top: 8%;
+  }
+
+  .tile-7 {
+    background-color: #5c2e2e;
+    height: 16%;
+    width: 20%;
+    left: 50%;
+    top: 74%;
+  }
+
+  .tile-8 {
+    background-color: #9b7b5b;
+    height: 24%;
+    width: 18%;
+    left: 72%;
+    top: 42%;
+  }
+
+  .tile-9 {
+    background-color: var(--bg-color);
+    border: 1px solid rgba(43, 37, 35, 0.15);
+    height: 10%;
+    width: 8%;
+    left: 84%;
+    top: 84%;
+  }
+
+  // ── Mobile ────────────────────────────────────────────────
+  @media (max-width: 768px) {
+    height: 100svh;
+
+    .gallery {
+      width: 240vmax;
+      height: 160vmax;
+    }
+
+    .jp-text {
+      font-size: clamp(0.75rem, 2vmax, 1.2rem);
+    }
+
+    .tile:hover img {
+      opacity: 0.88;
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.about {
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--gold-color);
+
+  .about-container {
+    height: 100svh;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      grid-area: 4/2/6/8;
+      text-align: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .about-description {
+      font-size: clamp(1rem, 3rem, 3rem);
+      font-family: var(--font-label);
+      max-width: 40ch;
+      color: var(--text-color);
+
+      span {
+        color: var(--red-color);
+        font-weight: bold;
+      }
+    }
+
+    .bottom-text {
+      grid-area: 8/3/8/7;
+      text-transform: uppercase;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      letter-spacing: 0.5;
+      color: var(--red-color);
+
+      .about-subtitle {
+        font-family: var(--font-label);
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+      .bottom-japanese {
+        font-family: var(--font-label);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-color);
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // ── Tablet ────────────────────────────────────────────────
+  @media (max-width: 1024px) {
+    .about-container {
+      .about-content {
+        grid-area: 3/1/7/9;
+        padding: 0 2rem;
+      }
+
+      .bottom-text {
+        grid-area: 8/2/9/8;
+      }
+    }
+  }
+
+  // ── Mobile ────────────────────────────────────────────────
+  @media (max-width: 768px) {
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 1.5rem 4rem;
+      height: 100svh;
+      gap: 0;
+
+      .about-content {
+        grid-area: unset;
+        padding: 0;
+        text-align: center;
+      }
+
+      .about-description {
+        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+      }
+
+      .bottom-text {
+        grid-area: unset;
+        margin-top: auto;
+
+        .about-subtitle  { font-size: 0.85rem; }
+        .bottom-japanese { font-size: 0.75rem; }
+      }
+    }
+  }
+}
