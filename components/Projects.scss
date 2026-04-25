@@ -1,6 +1,6 @@
 .projects {
   width: 100%;
-  height: 130svh;
+  height: 150svh;
   overflow: hidden;
   position: relative;
   background-color: var(--bg-color);
@@ -14,7 +14,7 @@
 
   .gallery {
     width: 140vmax;
-    height: 140vmax;
+    height: 150vmax;
     position: absolute;
     will-change: transform;
   }
@@ -24,8 +24,8 @@
     font-family: var(--font-label);
     font-size: clamp(1rem, 3vmax, 2.5rem);
     font-weight: 700;
-    color: var(--text-color);
-    opacity: 0.3;
+    color: var(--gold-color);
+    opacity: 0.5;
     pointer-events: none;
     user-select: none;
     writing-mode: vertical-rl;

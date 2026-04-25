@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect, useCallback } from "react";
 import "./Projects.scss";
+import { useProjectsAnimation } from "../hooks/useProjectsAnimation";
 
 const JP_TEXT = [
   { text: "作品",    top: "8%",  left: "28%" },
@@ -31,6 +32,7 @@ const DEPTHS = [0.018, 0.032, 0.024, 0.042, 0.015, 0.038, 0.028, 0.045, 0.02, 0.
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  useProjectsAnimation(sectionRef);
   const galleryRef = useRef<HTMLDivElement>(null);
   const jpRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const target = useRef({ x: 0, y: 0 });

@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./Works.scss";
+import { useWorksAnimation } from "../hooks/useWorksAnimation";
 
 const SRCS = [
   "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?auto=format&fit=crop&w=800&q=70",
@@ -53,11 +54,13 @@ const WORKS = [
 ];
 
 const Works = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  useWorksAnimation(sectionRef);
   const [hovered, setHovered] = useState<number | null>(null);
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="works" className="works">
+    <section id="works" className="works" ref={sectionRef}>
 
       <div className="projects-label">
         <h2 className="projects-title">Selected Work</h2>

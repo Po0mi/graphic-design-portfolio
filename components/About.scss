@@ -24,7 +24,12 @@
       align-items: center;
       gap: 1rem;
     }
-
+    .about-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 4vw, 4rem);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
     .about-description {
       font-size: clamp(1rem, 3rem, 3rem);
       font-family: var(--font-label);
@@ -101,8 +106,12 @@
         grid-area: unset;
         margin-top: auto;
 
-        .about-subtitle  { font-size: 0.85rem; }
-        .bottom-japanese { font-size: 0.75rem; }
+        .about-subtitle {
+          font-size: 0.85rem;
+        }
+        .bottom-japanese {
+          font-size: 0.75rem;
+        }
       }
     }
   }
