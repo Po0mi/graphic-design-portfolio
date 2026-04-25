@@ -4,22 +4,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const FROM_BRUSH = { clipPath: "inset(0 100% 0 0)" };
+const TO_BRUSH   = { clipPath: "inset(0 0% 0 0)", ease: "power4.out" };
+
+const FROM_INK = { autoAlpha: 0, scaleX: 0.94, transformOrigin: "left center" };
+const TO_INK   = { autoAlpha: 1, scaleX: 1, ease: "expo.out" };
+
 export function useProjectsAnimation(ref: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const section = ref.current;
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      // Tiles: brush-stroke wipe, random stagger for a scattered ink-drop feel
       gsap.fromTo(
         ".tile",
-        { autoAlpha: 0, scale: 0.88, y: 40 },
+        FROM_BRUSH,
         {
-          autoAlpha: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          stagger: { amount: 0.7, from: "random" },
+          ...TO_BRUSH,
+          duration: 1.4,
+          stagger: { amount: 1.0, from: "random" },
           scrollTrigger: {
             trigger: section,
             start: "top 75%",
@@ -28,15 +32,14 @@ export function useProjectsAnimation(ref: RefObject<HTMLElement | null>) {
         }
       );
 
+      // JP text: ink-spread fade, follows after tiles
       gsap.fromTo(
         ".jp-text",
-        { autoAlpha: 0, y: 20 },
+        FROM_INK,
         {
-          autoAlpha: 0.3,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: { amount: 0.5, from: "random" },
+          ...TO_INK,
+          duration: 1.2,
+          stagger: { amount: 0.8, from: "random" },
           scrollTrigger: {
             trigger: section,
             start: "top 65%",

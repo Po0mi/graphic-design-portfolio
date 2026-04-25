@@ -1,6 +1,6 @@
 .projects {
   width: 100%;
-  height: 150svh;
+  height: 300svh;
   overflow: hidden;
   position: relative;
   background-color: var(--bg-color);
@@ -14,7 +14,7 @@
 
   .gallery {
     width: 140vmax;
-    height: 150vmax;
+    height: 100vmax;
     position: absolute;
     will-change: transform;
   }

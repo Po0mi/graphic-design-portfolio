@@ -1,9 +1,14 @@
 "use client";
+import { useRef } from "react";
 import "./Contact.scss";
+import { useContactAnimation } from "../hooks/useContactAnimation";
 
 const Contact = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  useContactAnimation(sectionRef);
+
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact" ref={sectionRef}>
       <div className="contact-top">
         <div className="contact-col">
           <a href="mailto:tinambunanryanlee@gmail.com" className="contact-link">

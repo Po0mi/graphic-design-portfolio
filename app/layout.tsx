@@ -4,6 +4,8 @@ import { Epilogue } from "next/font/google";
 import "./globals.css";
 import "@/styles/globla.scss";
 import Navbar from "@/layouts/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const electroharmonix = localFont({
   src: "../public/fonts/Electroharmonix.otf",
@@ -40,7 +42,10 @@ export default function RootLayout({
     >
       <body>
         <Navbar />
-        <main>{children}</main>
+        <SmoothScroll>
+          <ScrollReveal />
+          <main>{children}</main>
+        </SmoothScroll>
       </body>
     </html>
   );

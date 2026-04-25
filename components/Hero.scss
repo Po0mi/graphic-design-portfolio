@@ -90,10 +90,19 @@
   // ── Tablet ────────────────────────────────────────────────
   @media (max-width: 1024px) {
     .hero-container {
-      .hero-title    { margin-left: 3rem; }
-      .hero-title-2  { margin-right: 2rem; }
-      .hero-japanese { font-size: 1.6rem; margin-left: 5rem; }
-      .vertical-text .hero-title-japanese { font-size: 1.6rem; }
+      .hero-title {
+        margin-left: 3rem;
+      }
+      .hero-title-2 {
+        margin-right: 2rem;
+      }
+      .hero-japanese {
+        font-size: 1.6rem;
+        margin-left: 5rem;
+      }
+      .vertical-text .hero-title-japanese {
+        font-size: 1.6rem;
+      }
     }
   }
 
@@ -110,33 +119,33 @@
 
       .hero-title {
         grid-area: unset;
-        font-size: clamp(4rem, 18vw, 8rem);
-        margin: 0;
         line-height: 0.9;
+        text-align: right;
+        align-self: flex-start;
+        margin: 0;
+        font-size: 3rem;
       }
 
       .hero-title-2 {
         grid-area: unset;
-        font-size: clamp(4rem, 18vw, 8rem);
         margin: 0;
         align-self: flex-end;
         line-height: 0.9;
+        font-size: 3rem;
       }
 
       .hero-japanese {
         grid-area: unset;
         font-size: 1rem;
-        margin: 1rem 0 0;
         align-self: flex-end;
       }
 
       .vertical-text {
         grid-area: unset;
-        margin-top: 1.5rem;
 
         .hero-title-sub {
-          font-size: clamp(4rem, 18vw, 8rem);
           line-height: 0.9;
+          font-size: 3rem;
         }
 
         .hero-title-japanese {
@@ -151,8 +160,12 @@
         align-self: center;
         text-align: center;
 
-        .hero-subtitle    { font-size: 0.85rem; }
-        .bottom-japanese  { font-size: 0.75rem; }
+        .hero-subtitle {
+          font-size: 0.85rem;
+        }
+        .bottom-japanese {
+          font-size: 0.75rem;
+        }
       }
     }
   }

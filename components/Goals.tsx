@@ -1,5 +1,7 @@
 "use client";
+import { useRef } from "react";
 import "./Goals.scss";
+import { useGoalsAnimation } from "../hooks/useGoalsAnimation";
 
 const GOALS = [
   {
@@ -50,8 +52,11 @@ const GOALS = [
 ];
 
 const Goals = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  useGoalsAnimation(sectionRef);
+
   return (
-    <section id="goals" className="goals">
+    <section id="goals" className="goals" ref={sectionRef}>
       <div className="goals-header">
         <h2 className="goals-heading">Goals as an Artist</h2>
       </div>
